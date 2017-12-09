@@ -7,6 +7,11 @@ fi
 # Load ZPlug
 source ~/.zplug/init.zsh
 
+# ZShell Plugins
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/colorize", from:oh-my-zsh
 
 
 # Themes
