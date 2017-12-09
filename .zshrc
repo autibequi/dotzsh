@@ -13,6 +13,8 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/colorize", from:oh-my-zsh
 
+# Agnostic Shell Plugins
+zplug 'rupa/z', use:'*.sh'
 
 # Themes
 zplug 'themes/sorin', from:oh-my-zsh
