@@ -19,6 +19,7 @@ zplug 'rupa/z', use:'*.sh'
 # Themes
 zplug 'themes/sorin', from:oh-my-zsh
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf", frozen:1
+zplug "raylee/tldr", as:command, use:"tldr"
 
 # ZPlug update
 zplug check || zplug install
