@@ -5,5 +5,5 @@
 Clone to `~/.zsh` and run
 
 '''
-echo 'source ~/.zsh/.zshrc' > ~/.zshrc
+echo 'source ~/.zsh/zshrc' > ~/.zshrc
 '''
