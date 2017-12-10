@@ -32,3 +32,4 @@ zplug load
 
 # Load Scripts
 source ~/.zsh/scripts/transfer.sh
+source ~/.zsh/alias/docker.sh
