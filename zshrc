@@ -12,6 +12,7 @@ zplug "zdharma/fast-syntax-highlighting", defer:2
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/colorize", from:oh-my-zsh
 zplug "zsh-users/zsh-history-substring-search"
+zplug "Tarrasch/zsh-bd"
 
 # Agnostic Shell Plugins
 zplug 'rupa/z', use:'*.sh'
