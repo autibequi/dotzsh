@@ -27,3 +27,6 @@ zplug check || zplug install
 
 # Load Plugins
 zplug load
+
+# Load Scripts
+source ~/.zsh/scripts/transfer.sh
