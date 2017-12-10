@@ -18,6 +18,7 @@ zplug "k4rthik/git-cal", as:command, frozen:1, rename-to:"gcal"
 # Agnostic Shell Plugins
 zplug 'rupa/z', use:'*.sh'
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf", frozen:1
+zplug "jhawthorn/fzy", as:command, rename-to:fzy, hook-build:"make && make install"
 zplug "raylee/tldr", as:command, use:"tldr"
 
 # Themes
