@@ -13,6 +13,7 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/colorize", from:oh-my-zsh
 zplug "zsh-users/zsh-history-substring-search"
 zplug "Tarrasch/zsh-bd"
+zplug "k4rthik/git-cal", as:command, frozen:1, rename-to:"gcal"
 
 # Agnostic Shell Plugins
 zplug 'rupa/z', use:'*.sh'
