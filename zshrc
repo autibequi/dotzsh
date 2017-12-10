@@ -31,5 +31,5 @@ zplug check || zplug install
 zplug load
 
 # Load Scripts
-source ~/.zsh/scripts/transfer.sh
-source ~/.zsh/alias/docker.sh
+source ~/.zsh/scripts/*.sh
+source ~/.zsh/alias/*.sh
