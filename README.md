@@ -2,8 +2,14 @@
 
 ## Instalation
 
-Clone to `~/.zsh` and run
+Clone to `~/zsh` and run
 
 ```
-echo 'source ~/.zsh/zshrc' > ~/.zshrc
+ln ~/zsh/zshrc ~/.zshrc
+```
+
+## ZShell Loading Time
+
+```
+repeat 5 /usr/bin/time zsh -i -c exit
 ```
