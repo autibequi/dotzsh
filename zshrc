@@ -31,5 +31,5 @@ zplug check || zplug install
 zplug load
 
 # Load Scripts
-source ~/.zsh/scripts/*.sh
-source ~/.zsh/alias/*.sh
+for f in ~/.zsh/scripts/*.sh; do source $f; done
+for f in ~/.zsh/alias/*.sh; do source $f; done
