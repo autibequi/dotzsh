@@ -47,5 +47,11 @@ zplug load
 for f in ~/.zsh/scripts/*.sh; do source $f; done
 for f in ~/.zsh/alias/*.sh; do source $f; done
 
+# ZPlug update
+zplug check || zplug install
+
+# Load Plugins
+zplug load
+
 # Adds an empty space between commands
 PS1=$'\n\n'"$PS1"
