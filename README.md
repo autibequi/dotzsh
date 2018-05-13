@@ -5,9 +5,9 @@
 Clone to `~/zsh` and run
 
 ```
-ln ~/zsh/zshrc ~/.zshrc
-ln ~/zsh/alacritty.yml ~/.config/alacritty/alacritty.yml
-ln ~/zsh/.hyper.js ~/.hyper.js
+ln -s ~/zsh/zshrc ~/.zshrc
+ln -s ~/zsh/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -s ~/zsh/.hyper.js ~/.hyper.js
 ```
 
 ## ZShell Loading Time
