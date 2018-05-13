@@ -5,3 +5,4 @@ alias sch="history | cut -c 8- | fzy -s -p 'COMMAND HISTORY SEARCH > '"
 alias cat='pygmentize -g'
 alias zrl='source ~/.zshrc'
 alias zed='vim ~/.zshrc'
+alias led="vim ~/.localrc"

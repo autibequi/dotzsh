@@ -55,3 +55,6 @@ zplug load
 
 # Adds an empty space between commands
 PS1=$'\n\n'"$PS1"
+
+# Import/Create .localrc file
+source ~/.localrc || touch ~/.localrc
