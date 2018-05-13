@@ -35,7 +35,7 @@ zplug "jhawthorn/fzy", as:command, rename-to:fzy, hook-build:"make && make insta
 zplug "raylee/tldr", as:command, use:"tldr"
 
 # Themes
-zplug 'themes/jonathan', as:theme, from:oh-my-zsh
+zplug 'themes/gnzh', as:theme, from:oh-my-zsh
 
 # ZPlug update
 zplug check || zplug install
