@@ -10,6 +10,7 @@ setopt    appendhistory     #Append history to the history file (no overwriting)
 setopt    sharehistory      #Share history across terminals
 setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
 setopt HIST_IGNORE_ALL_DUPS
+setopt no_share_history     #Disable history sharing
 
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then
