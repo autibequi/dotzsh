@@ -36,7 +36,8 @@ zplug "jhawthorn/fzy", as:command, rename-to:fzy, hook-build:"make && make insta
 zplug "raylee/tldr", as:command, use:"tldr"
 
 # Themes
-zplug 'themes/gnzh', as:theme, from:oh-my-zsh
+zplug 'dracula/zsh', as:theme
+# zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
 
 # ZPlug update
 zplug check || zplug install
