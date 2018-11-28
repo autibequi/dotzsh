@@ -6,3 +6,4 @@ alias cat='pygmentize -g'
 alias zrl='source ~/.zshrc'
 alias zed='vim ~/zsh'
 alias led="vim ~/.localrc"
+alias bensh="repeat 5 /usr/bin/time zsh -i -c exit" # Benchmark Shell
