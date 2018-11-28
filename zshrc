@@ -12,41 +12,46 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 setopt HIST_IGNORE_ALL_DUPS
 setopt no_share_history     #Disable history sharing
 
-# Check if zplug is installed
-if [[ ! -d ~/.zplug ]]; then
-  git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
+# Check if zgen is installed
+if [[ ! -d ~/.zgen ]]; then
+  git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 fi
 
-# Load ZPlug
-source ~/.zplug/init.zsh
+# load zgen
+source "${HOME}/.zgen/zgen.zsh"
 
-# ZShell Plugins
-zplug "zdharma/fast-syntax-highlighting", defer:2
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/colorize", from:oh-my-zsh
-zplug "zsh-users/zsh-history-substring-search"
-zplug "Tarrasch/zsh-bd"
-zplug "k4rthik/git-cal", as:command, frozen:1, rename-to:"gcal", defer:3
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-zplug "b4b4r07/zsh-vimode-visual", use:"*.zsh", defer:3
+# if the init script doesn't exist
+if ! zgen saved; then
 
-# Async Loader
-zplug "mafredri/zsh-async", from:"github", use:"async.zsh"
+  # oh-my-zsh
+  zgen oh-my-zsh
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh plugins/colorize
 
-# Agnostic Shell Plugins
-zplug 'rupa/z', use:'*.sh'
-zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf", frozen:1
-zplug "jhawthorn/fzy", as:command, rename-to:fzy, hook-build:"make && make install"
-zplug "raylee/tldr", as:command, use:"tldr"
+  # github
+  zgen load zdharma/fast-syntax-highlighting
+  zgen load zsh-users/zsh-history-substring-search
+  zgen load Tarrasch/zsh-bd
+  zgen load zsh-users/zsh-autosuggestions
+  zgen load zsh-users/zsh-completions
+  zgen load b4b4r07/zsh-vimode-visual
 
-# Themes
-zplug 'dracula/zsh', as:theme
-# zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
+  # async
+  zgen load mafredri/zsh-async
 
-# Load Plugins
-zplug load
+  # agnostic
+  zgen load rupa/z
+  zgen load junegunn/fzf-bin
+  zgen load jhawthorn/fzy
+  zgen load raylee/tldr
+  zgen load dracula/zsh dracula
+
+  # generate the init script from plugins above
+  zgen save
+fi
+
+# Set Theme
+ZSH_THEME="dracula"
 
 # Adds an empty space between commands
 PS1=$'\n\n'"$PS1"
@@ -61,9 +66,6 @@ async_load() {
 
   # Import/Create .localrc file
   source ~/.localrc || touch ~/.localrc
-
-  # ZPlug update
-  zplug check || zplug install
 }
 
 # Initialize a new worker (with notify option)
