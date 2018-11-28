@@ -53,13 +53,14 @@ if ! zgen saved; then
 
   # theme
   zgen load dracula/zsh dracula
-  ZSH_THEME=dracula             # Set Theme
-  PS1=$'\n\n'"$PS1"             # Adds an empty space between commands
+
 
   # generate the init script from plugins above
   zgen save
 fi
 
+ZSH_THEME=dracula             # Set Theme
+PS1=$'\n\n'"$PS1"             # Adds an empty space between commands
 
 #     _    ______   ___   _  ____ 
 #    / \  / ___\ \ / / \ | |/ ___|
