@@ -15,6 +15,7 @@ nix-env -iA nixpkgs.python
 nix-env -iA nixpkgs.exa         # color ls
 nix-env -iA nixpkgs.tig         # gui git
 nix-env -iA nixpkgs.jq          # json grabber
+nix-env -iA nixpkgs.ranger      # cli explorer
 
 # Install Python Utils
 pip install howdoi              # code Cheat Sheets
