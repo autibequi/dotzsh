@@ -1,11 +1,10 @@
 # Install Nix Package Manager
 curl https://nixos.org/nix/install | sh
 
-# Install Alacritty
+# Install base shell env
 nix-env -iA nixpkgs.alacritty
-
-# Install Tmux
 nix-env -iA nixpkgs.tmux
+nix-env -iA nixpkgs.zsh
 
 # Install python and ruby
 nix-env -iA nixpkgs.ruby
