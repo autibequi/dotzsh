@@ -82,6 +82,15 @@ async_load() {
   zgen load jhawthorn/fzy
   zgen load raylee/tldr
   zgen load molovo/tipz
+
+  # Superdupper hack to speed up startup
+  # https://carlosbecker.com/posts/speeding-up-zsh/
+  autoload -Uz compinit
+  if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+    compinit
+  else
+    compinit -C
+  fi
 }
 
 # Initialize a new worker (with notify option)
