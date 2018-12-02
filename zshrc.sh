@@ -96,8 +96,6 @@ async_load() {
   # Load Scripts
   for f in ~/zsh/scripts/*.sh; do source $f; done
   for f in ~/zsh/alias/*.sh; do source $f; done
-
-  tmux display-message "  Async Functions Loaded"
 }
 
 # Initialize a new worker (with notify option)
