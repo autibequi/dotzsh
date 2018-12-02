@@ -24,16 +24,16 @@ setopt no_share_history     # Disable history sharing
 #   / / |  _|  _| |  \| |
 #  / /| |_| | |___| |\  |
 # /____\____|_____|_| \_|
-if [[ ! -d ~/.zgen ]]; then
-  echo "Installing ZGEN"
-  git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
-fi
+# Load zgen only if a user types a zgen command
+zgen () {
+	if [[ ! -s ${ZDOTDIR:-${HOME}}/.zgen/zgen.zsh ]]; then
+		git clone --recursive https://github.com/tarjoilija/zgen.git ${ZDOTDIR:-${HOME}}/.zgen
+	fi
+	source ${ZDOTDIR:-${HOME}}/.zgen/zgen.zsh
+	zgen "$@"
+}
 
-# load zgen
-source "${HOME}/.zgen/zgen.zsh"
-
-# if the init script doesn't exist
-if ! zgen saved; then
+if [[ ! -s ${ZDOTDIR:-${HOME}}/.zgen/init.zsh ]]; then
 
   # oh-my-zsh
   zgen oh-my-zsh
@@ -54,13 +54,18 @@ if ! zgen saved; then
   # theme
   zgen load dracula/zsh dracula
 
-
   # generate the init script from plugins above
   zgen save
+  zcompile ${ZDOTDIR:-${HOME}}/.zgen/init.zsh
 fi
 
-ZSH_THEME=dracula             # Set Theme
-PS1=$'\n\n'"$PS1"             # Adds an empty space between commands
+# Theme
+autoload -Uz promptinit && promptinit
+prompt purer             
+PS1=$'\n\n'"$PS1"                        # Adds an empty space between commands
+
+# Manually source Async Plugin 
+source ${ZDOTDIR:-${HOME}}/.zgen/mafredri/zsh-async-master/async.plugin.zsh
 
 #     _    ______   ___   _  ____ 
 #    / \  / ___\ \ / / \ | |/ ___|
@@ -68,9 +73,14 @@ PS1=$'\n\n'"$PS1"             # Adds an empty space between commands
 #  / ___ \ ___) || | | |\  | |___ 
 # /_/   \_\____/ |_| |_| \_|\____|
 async_load() {
-  # Load Scripts
-  for f in ~/zsh/scripts/*.sh; do source $f; done
-  for f in ~/zsh/alias/*.sh; do source $f; done
+  # Superdupper hack to speed up startup
+  # https://carlosbecker.com/posts/speeding-up-zsh/
+  autoload -Uz compinit
+  if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+    compinit
+  else
+    compinit -C
+  fi
 
   # Import/Create .localrc file
   source ~/.localrc || touch ~/.localrc
@@ -83,14 +93,11 @@ async_load() {
   zgen load raylee/tldr
   zgen load molovo/tipz
 
-  # Superdupper hack to speed up startup
-  # https://carlosbecker.com/posts/speeding-up-zsh/
-  autoload -Uz compinit
-  if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-    compinit
-  else
-    compinit -C
-  fi
+  # Load Scripts
+  for f in ~/zsh/scripts/*.sh; do source $f; done
+  for f in ~/zsh/alias/*.sh; do source $f; done
+
+  tmux display-message "  Async Functions Loaded"
 }
 
 # Initialize a new worker (with notify option)
