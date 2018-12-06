@@ -3,7 +3,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 
-#  _________  _   _ 
+#  _________  _   _
 # |__  / ___|| | | |
 #   / /\___ \| |_| |
 #  / /_ ___) |  _  |
@@ -19,7 +19,7 @@ setopt HIST_IGNORE_ALL_DUPS # Hist
 setopt no_share_history     # Disable history sharing
 
 
-#  _________ _____ _   _ 
+#  _________ _____ _   _
 # |__  / ___| ____| \ | |
 #   / / |  _|  _| |  \| |
 #  / /| |_| | |___| |\  |
@@ -43,6 +43,7 @@ if [[ ! -s ${ZDOTDIR:-${HOME}}/.zgen/init.zsh ]]; then
   zgen load raylee/tldr
   zgen load molovo/tipz
 
+
   # github
   zgen load zdharma/fast-syntax-highlighting
   zgen load zsh-users/zsh-history-substring-search
@@ -65,30 +66,21 @@ fi
 source ${ZDOTDIR:-${HOME}}/.zgen/init.zsh
 
 # Theme
-autoload -Uz promptinit && promptinit && prompt purer  
+autoload -Uz promptinit && promptinit && prompt purer
 PS1=$'\n\n'"$PS1"  # Adds an empty space between commands
 
-#     _    ______   ___   _  ____ 
+#     _    ______   ___   _  ____
 #    / \  / ___\ \ / / \ | |/ ___|
-#   / _ \ \___ \\ V /|  \| | |    
-#  / ___ \ ___) || | | |\  | |___ 
+#   / _ \ \___ \\ V /|  \| | |
+#  / ___ \ ___) || | | |\  | |___
 # /_/   \_\____/ |_| |_| \_|\____|
 async_load() {
   # Import/Create .localrc file
   source ~/.localrc || touch ~/.localrc
-  
+
   # Load Scripts
   for f in ~/zsh/scripts/*.sh; do source $f; done
   for f in ~/zsh/alias/*.sh; do source $f; done
-
-  # Superdupper hack to speed up startup
-  # https://carlosbecker.com/posts/speeding-up-zsh/
-  autoload -Uz compinit
-  if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-    compinit
-  else
-    compinit -C
-  fi
 }
 
 # Initialize a new worker (with notify option)
@@ -96,10 +88,22 @@ async_start_worker init
 async_register_callback init async_load
 async_job init
 
-
-#  __  __ ___ ____   ____ 
+#  __  __ ___ ____   ____
 # |  \/  |_ _/ ___| / ___|
-# | |\/| || |\___ \| |    
-# | |  | || | ___) | |___ 
+# | |\/| || |\___ \| |
+# | |  | || | ___) | |___
 # |_|  |_|___|____/ \____|
+
+# Superdupper hack to speed up startup
+# https://carlosbecker.com/posts/speeding-up-zsh/
+{
+	autoload -Uz compinit
+	if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+		compinit
+	else
+		compinit -C
+	fi
+} &!
+
+# TIPZ Config
 TIPZ_TEXT='  Hey, you could use this alias too:'
