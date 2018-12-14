@@ -37,7 +37,7 @@ if [[ ! -s ${ZDOTDIR:-${HOME}}/.zgen/init.zsh ]]; then
 
   # Mostly Shell
   zgen load Tarrasch/zsh-bd
-  zgen load rupa/z
+  zgen load agkozak/zsh-z
   zgen load junegunn/fzf-bin
   zgen load jhawthorn/fzy
   zgen load raylee/tldr
