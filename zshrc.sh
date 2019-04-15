@@ -54,6 +54,8 @@ if [[ ! -s ${ZDOTDIR:-${HOME}}/.zgen/init.zsh ]]; then
   # async
   zgen load mafredri/zsh-async
 
+  zgen oh-my-zsh plugins/sudo
+
   # theme
   zgen load dracula/zsh dracula
 
