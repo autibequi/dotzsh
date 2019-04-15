@@ -1,1 +1,3 @@
-alias unlock='sudo spctl --master-disable'
+if [ $(uname) = "Darwin" ]; then
+  alias unlock='sudo spctl --master-disable'
+fi
