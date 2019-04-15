@@ -39,7 +39,7 @@ zgen () {
 
 if [[ ! -s ${ZDOTDIR:-${HOME}}/.zgen/init.zsh ]]; then
 	# Speed Up Script
-	zgen load seletskiy/zsh-zgen-compinit-tweak
+	# zgen load seletskiy/zsh-zgen-compinit-tweak
 
   # Github
   zgen load zdharma/fast-syntax-highlighting
