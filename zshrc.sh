@@ -57,6 +57,7 @@ if [[ ! -s ${ZDOTDIR:-${HOME}}/.zgen/init.zsh ]]; then
 
   # Generate the init script from plugins above
   zgen save
+	echo "Compiling new init.zsh"
   zcompile ${ZDOTDIR:-${HOME}}/.zgen/init.zsh
 fi
 
