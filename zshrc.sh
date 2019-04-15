@@ -21,7 +21,7 @@ setopt HIST_IGNORE_ALL_DUPS # Hist
 setopt no_share_history     # Disable history sharing
 
 # Misc
-TIPZ_TEXT='  Hey, you could use this alias too:'
+TIPZ_TEXT=' 🤖 Hey, you could use this alias too:'
 
 #  _________ _____ _   _
 # |__  / ___| ____| \ | |
