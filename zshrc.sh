@@ -1,23 +1,27 @@
-export LANGUAGE=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-
-#  _________  _   _
+# _____ ____  _   _
 # |__  / ___|| | | |
 #   / /\___ \| |_| |
 #  / /_ ___) |  _  |
 # /____|____/|_| |_|
+# Language Setup
+LANGUAGE=en_US.UTF-8
+LANG=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+
+# History Settings
 HISTSIZE=5000               # How many lines of history to keep in memory
 HISTFILE=~/.zsh_history     # Where to save history to disk
 SAVEHIST=5000               # Number of history entries to save to disk
 HISTDUP=erase               # Erase duplicates in the history file
-setopt    appendhistory     # Append history to the history file (no overwriting)
-setopt    sharehistory      # Share history across terminals
-setopt    incappendhistory  # Immediately append to the history file, not just when a term is killed
+
+setopt appendhistory     		# Append history to the history file (no overwriting)
+setopt sharehistory      		# Share history across terminals
+setopt incappendhistory  		# Immediately append to the history file, not just when a term is killed
 setopt HIST_IGNORE_ALL_DUPS # Hist
 setopt no_share_history     # Disable history sharing
 
+# Misc
+TIPZ_TEXT='  Hey, you could use this alias too:'
 
 #  _________ _____ _   _
 # |__  / ___| ____| \ | |
@@ -39,10 +43,8 @@ if [[ ! -s ${ZDOTDIR:-${HOME}}/.zgen/init.zsh ]]; then
   zgen load Tarrasch/zsh-bd
   zgen load agkozak/zsh-z
   zgen load junegunn/fzf-bin
-  zgen load jhawthorn/fzy
   zgen load raylee/tldr
   zgen load molovo/tipz
-
 
   # github
   zgen load zdharma/fast-syntax-highlighting
@@ -121,4 +123,3 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
 # TIPZ Config
-TIPZ_TEXT='  Hey, you could use this alias too:'
