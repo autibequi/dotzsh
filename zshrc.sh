@@ -38,8 +38,12 @@ zgen () {
 }
 
 if [[ ! -s ${ZDOTDIR:-${HOME}}/.zgen/init.zsh ]]; then
-	# Speed Up Script
-	# zgen load seletskiy/zsh-zgen-compinit-tweak
+	# Mostly Shell
+	zgen load Tarrasch/zsh-bd
+	zgen load agkozak/zsh-z
+	zgen load junegunn/fzf-bin
+	zgen load raylee/tldr
+	zgen load molovo/tipz
 
   # Github
   zgen load zdharma/fast-syntax-highlighting
@@ -79,13 +83,6 @@ async_load() {
 	# Load Scripts
 	for f in ~/zsh/scripts/*.sh; do source $f; done
 	for f in ~/zsh/alias/*.sh; do source $f; done
-
-	# Mostly Shell
-	zgen load Tarrasch/zsh-bd
-	zgen load agkozak/zsh-z
-	zgen load junegunn/fzf-bin
-	zgen load raylee/tldr
-	zgen load molovo/tipz
 }
 
 # Initialize a new worker (with notify option)
