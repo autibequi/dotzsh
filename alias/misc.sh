@@ -8,5 +8,5 @@ alias bensh="repeat 5 time zsh -i -c exit" # Benchmark Shell
 alias f='fzf-tmux --color=16 -m -d 20'
 
 # Conditional Alias
-exa &> /dev/null && alias ls=exa
-colorls &> /dev/null && alias cls=colorls
+hash exa &> /dev/null && alias ls=exa
+hash colorls &> /dev/null && alias cls=colorls
