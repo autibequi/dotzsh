@@ -1,9 +1,12 @@
-alias cls=colorls
-alias ls=exa
-alias fzy="fzy -l 20"
-alias sch="history | cut -c 8- | fzy -s -p 'COMMAND HISTORY SEARCH > '"
+# Plain Alias
+alias sch="history | cut -c 8- | fzf -s -p 'COMMAND HISTORY SEARCH > '"
 alias zrl='zgen reset; source ~/.zshrc'
+alias zfresh='rm -rf ~/.zgen && zrl'
 alias zed='vim ~/zsh'
 alias led="vim ~/.localrc"
 alias bensh="repeat 5 time zsh -i -c exit" # Benchmark Shell
 alias f='fzf-tmux --color=16 -m -d 20'
+
+# Conditional Alias
+exa &> /dev/null && alias ls=exa
+colorls &> /dev/null && alias cls=colorls
