@@ -38,31 +38,24 @@ zgen () {
 }
 
 if [[ ! -s ${ZDOTDIR:-${HOME}}/.zgen/init.zsh ]]; then
+	# Speed Up Script
 	zgen load seletskiy/zsh-zgen-compinit-tweak
 
-  # Mostly Shell
-  zgen load Tarrasch/zsh-bd
-  zgen load agkozak/zsh-z
-  zgen load junegunn/fzf-bin
-  zgen load raylee/tldr
-  zgen load molovo/tipz
-
-  # github
+  # Github
   zgen load zdharma/fast-syntax-highlighting
   zgen load zsh-users/zsh-history-substring-search
   zgen load zsh-users/zsh-autosuggestions
   zgen load zsh-users/zsh-completions src
   zgen load b4b4r07/zsh-vimode-visual
-
-  # async
   zgen load mafredri/zsh-async
 
-  zgen oh-my-zsh plugins/sudo
+	# Oh My ZSH plugins
+	zgen oh-my-zsh plugins/sudo
 
-  # theme
-  zgen load dracula/zsh dracula
+  # Theme
+	zgen load miekg/lean
 
-  # generate the init script from plugins above
+  # Generate the init script from plugins above
   zgen save
   zcompile ${ZDOTDIR:-${HOME}}/.zgen/init.zsh
 fi
@@ -70,57 +63,31 @@ fi
 # Load settings
 source ${ZDOTDIR:-${HOME}}/.zgen/init.zsh
 
-# Theme
-autoload -Uz promptinit && promptinit && prompt purer
-PS1=$'\n\n'"$PS1"  # Adds an empty space between commands
-
 #     _    ______   ___   _  ____
 #    / \  / ___\ \ / / \ | |/ ___|
 #   / _ \ \___ \\ V /|  \| | |
 #  / ___ \ ___) || | | |\  | |___
 # /_/   \_\____/ |_| |_| \_|\____|
 async_load() {
+	# Theme Load
+	autoload -Uz promptinit && promptinit && prompt lean
+
   # Import/Create .localrc file
   source ~/.localrc || touch ~/.localrc
 
-  # Load Scripts
-  for f in ~/zsh/scripts/*.sh; do source $f; done
-  for f in ~/zsh/alias/*.sh; do source $f; done
+	# Load Scripts
+	for f in ~/zsh/scripts/*.sh; do source $f; done
+	for f in ~/zsh/alias/*.sh; do source $f; done
+
+	# Mostly Shell
+	zgen load Tarrasch/zsh-bd
+	zgen load agkozak/zsh-z
+	zgen load junegunn/fzf-bin
+	zgen load raylee/tldr
+	zgen load molovo/tipz
 }
 
 # Initialize a new worker (with notify option)
 async_start_worker init
-async_register_callback init async_load
 async_job init
-
-#  __  __ ___ ____   ____
-# |  \/  |_ _/ ___| / ___|
-# | |\/| || |\___ \| |
-# | |  | || | ___) | |___
-# |_|  |_|___|____/ \____|
-
-# Superdupper hack to speed up startup
-# https://carlosbecker.com/posts/speeding-up-zsh/
-{
-	autoload -Uz compinit
-	if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-		compinit
-	else
-		compinit -C
-	fi
-} &!
-
-# speeds up pasting w/ autosuggest
-# https://github.com/zsh-users/zsh-autosuggestions/issues/238
-pasteinit() {
-  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
-  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
-}
-
-pastefinish() {
-  zle -N self-insert $OLD_SELF_INSERT
-}
-zstyle :bracketed-paste-magic paste-init pasteinit
-zstyle :bracketed-paste-magic paste-finish pastefinish
-
-# TIPZ Config
+async_register_callback init async_load
