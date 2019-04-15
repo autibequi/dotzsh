@@ -38,6 +38,7 @@ zgen () {
 }
 
 if [[ ! -s ${ZDOTDIR:-${HOME}}/.zgen/init.zsh ]]; then
+	zgen load seletskiy/zsh-zgen-compinit-tweak
 
   # Mostly Shell
   zgen load Tarrasch/zsh-bd
