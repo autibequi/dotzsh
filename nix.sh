@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Install Nix Package Manager
 curl https://nixos.org/nix/install | sh
 
@@ -6,15 +8,15 @@ nix-env -iA nixpkgs.alacritty
 nix-env -iA nixpkgs.tmux
 nix-env -iA nixpkgs.zsh
 
-# Install python and ruby
-nix-env -iA nixpkgs.ruby
-nix-env -iA nixpkgs.python
-
 # Install Utils
 nix-env -iA nixpkgs.exa         # color ls
 nix-env -iA nixpkgs.tig         # gui git
 nix-env -iA nixpkgs.jq          # json grabber
 nix-env -iA nixpkgs.ranger      # cli explorer
+
+# Install python and ruby
+nix-env -iA nixpkgs.ruby
+nix-env -iA nixpkgs.python
 
 # Install Python Utils
 pip install howdoi              # code Cheat Sheets

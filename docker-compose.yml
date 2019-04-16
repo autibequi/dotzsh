@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  shell:
+    image: ubuntu:latest
+    working_dir: /shell
+    command: "~/zsh/bootstrap.sh"
+    volumes:
+      - ./:~/zsh
