@@ -2,16 +2,30 @@
 
 ## Instalation
 
-Clone to `~/zsh` and run
+This script will ask for root credentials right away to avoid blocking the installation later.
 
-```
-ln -s ~/zsh/zshrc ~/.zshrc
-ln -s ~/zsh/alacritty.yml ~/.config/alacritty/alacritty.yml
-ln -s ~/zsh/.hyper.js ~/.hyper.js
+```sh
+$ ./bootstrap.sh
 ```
 
-## ZShell Loading Time
+## ZSH Loading Time
 
+```sh
+$ bensh
 ```
-repeat 5 /usr/bin/time zsh -i -c exit
+
+## Container Tester
+
+This container is used to test the installation from a fresh environment.
+
+```sh
+$ docker-compose up
+```
+
+## Random Shell Tips
+
+### Remove `Last Login` message on OSX
+
+```sh
+touch ~/.hushlogin
 ```
