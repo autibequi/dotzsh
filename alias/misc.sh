@@ -6,6 +6,7 @@ alias zed='vim ~/zsh'
 alias led="vim ~/.localrc"
 alias bensh="repeat 5 time zsh -i -c exit" # Benchmark Shell
 alias f='fzf-tmux --color=16 -m -d 20'
+alias ta='tmux attach -t init || tmux new -s init'
 
 # Conditional Alias
 hash exa &> /dev/null && alias ls=exa
