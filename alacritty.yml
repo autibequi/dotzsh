@@ -30,7 +30,7 @@ window:
     y: 2
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -48,10 +48,10 @@ window:
   #     - none: Neither borders nor title bar
   #     - buttonless: Title bar, transparent background and title bar buttons
   #     - transparent: Title bar, transparent background, but no title bar buttons
-  decorations: full
+  decorations: none
 
   # When true, alacritty starts maximized.
-  start_maximized: false
+  start_maximized: true
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -223,13 +223,13 @@ colors:
 # Specifying a `duration` of `0` will disable the visual bell.
 visual_bell:
   animation: EaseOutExpo
-  duration: 0
+  duration: 2
 
 # Background opacity
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 1.0
+background_opacity: 0.8
 
 # Mouse bindings
 #
@@ -247,7 +247,7 @@ background_opacity: 1.0
 # All available `mods` and `action` values are documented in the key binding
 # section.
 mouse_bindings:
-  - { mouse: Middle, action: PasteSelection }
+  - { mouse: Middle, action: Paste }
 
 mouse:
   # Click settings
@@ -259,7 +259,7 @@ mouse:
   triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
-  hide_when_typing: false
+  hide_when_typing: true
 
   url:
     # URL launcher
