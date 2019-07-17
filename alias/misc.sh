@@ -11,3 +11,8 @@ alias ta='tmux attach -t init || tmux new -s init'
 # Conditional Alias
 hash exa &> /dev/null && alias ls=exa
 hash colorls &> /dev/null && alias cls=colorls
+
+# Ultimate Port Killer
+portkill() {
+  kill $2 $(lsof -t -i:$1)
+}
