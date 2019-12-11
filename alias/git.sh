@@ -33,6 +33,9 @@ function work_in_progress() {
   fi
 }
 
+# Cool Tricks
+alias grank='git shortlog -s -n --all --no-merges'
+
 #
 # Aliases
 # (sorted alphabetically)
