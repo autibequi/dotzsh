@@ -16,3 +16,8 @@ hash colorls &> /dev/null && alias cls=colorls
 portkill() {
   kill $2 $(lsof -t -i:$1)
 }
+
+# Multikiller
+die() {
+  kill $(ps -ef | f | awk '{print $2}')
+}
