@@ -13,4 +13,4 @@ sudo chsh -s /bin/zsh $USER
 ln -s zshrc ~/.zshrc
 ln -s hyper.js ~/.hyper.js
 ln -s tmux.conf ~/.tmux.conf
-ln -s alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -s alacritty.yml ~/alacritty.yml
